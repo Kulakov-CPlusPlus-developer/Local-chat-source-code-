@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Client</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(36, 36, 36);
+color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="5,2">
+      <item>
+       <widget class="QGroupBox" name="gpMessages">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(36, 36, 36);
+</string>
+        </property>
+        <property name="title">
+         <string>Messages</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QTabWidget" name="tbChats">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+
+border-radius: 8px;
+border-color: rgb(0, 0, 0);</string>
+           </property>
+           <property name="currentIndex">
+            <number>-1</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(36, 36, 36);</string>
+        </property>
+        <property name="title">
+         <string>Clients(Online)</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QListWidget" name="lstClients">
+           <property name="styleSheet">
+            <string notr="true">border-radius: 8px;
+color: rgb(255, 255, 255);
+background-color: rgb(36, 36, 36);
+border-color: rgb(0, 0, 0);</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="lbErrorMessage">
+      <property name="styleSheet">
+       <string notr="true">color: rgb(139, 51, 36);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuOptions">
+    <property name="styleSheet">
+     <string notr="true">QMenu#menuOptions {
+    background-color: rgb(36, 36, 36);
+}
+
+QMenu#menuOptions::item:selected {
+    background-color: white;
+    color: rgb(54, 54, 54);
+}
+
+QMenu#menuOptions::item:disabled {
+    color: gray;
+}</string>
+    </property>
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionConnected"/>
+    <addaction name="actionServer"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menuOptions"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <action name="actionConnected">
+   <property name="text">
+    <string>Connected</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionServer">
+   <property name="text">
+    <string>Server</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>lstClients</sender>
+   <signal>itemPressed(QListWidgetItem*)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showContextMenu(QListWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>657</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>724</x>
+     <y>572</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>showContextMenu(QListWidgetItem*)</slot>
+ </slots>
+</ui>
